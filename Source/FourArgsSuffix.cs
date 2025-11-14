@@ -15,21 +15,12 @@ namespace kOS.Safe.Encapsulation.Suffixes
             this.del = del;
         }
 
-        protected override object Call(object[] args)
-        {
-            return (TReturn)del((TParam)args[0], (TParam2)args[1], (TParam3)args[2], (TParam4)args[3]);
-        }
+        protected override object Call(object[] args) => del((TParam)args[0], (TParam2)args[1], (TParam3)args[2], (TParam4)args[3]);
 
-        protected override Delegate Delegate
-        {
-            get
-            {
-                return del;
-            }
-        }
+        protected override Delegate Delegate => del;
     }
 
-    public class FourArgsSuffix<TParam, TParam2, TParam3, TParam4> : SuffixBase where TParam : Structure where TParam2 : Structure where TParam3: Structure where TParam4 : Structure
+    public class FourArgsSuffix<TParam, TParam2, TParam3, TParam4> : SuffixBase where TParam : Structure where TParam2 : Structure where TParam3 : Structure where TParam4 : Structure
     {
         private readonly Del<TParam, TParam2, TParam3, TParam4> del;
 
@@ -47,12 +38,6 @@ namespace kOS.Safe.Encapsulation.Suffixes
             return null;
         }
 
-        protected override Delegate Delegate
-        {
-            get
-            {
-                return del;
-            }
-        }
+        protected override Delegate Delegate => del;
     }
 }

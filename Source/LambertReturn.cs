@@ -1,14 +1,14 @@
-using System;
 using kOS.Safe.Encapsulation;
 using kOS.Safe.Encapsulation.Suffixes;
+using kOS.Safe.Utilities;
 using kOS.Suffixed;
 
 namespace kOS.AddOns.kOSMechJebLib
 {
     /// <summary>
-    /// Holds both the initial and final velocity return values from the Lambert routine.
+    ///     Holds both the initial and final velocity return values from the Lambert routine.
     /// </summary>
-    [kOS.Safe.Utilities.KOSNomenclature("LambertReturn")]
+    [KOSNomenclature("LambertReturn")]
     public class LambertReturn : Structure
     {
         public Vector Vi { get; }
@@ -30,9 +30,9 @@ namespace kOS.AddOns.kOSMechJebLib
         public override string ToString()
         {
             return "LambertReturn(\n" +
-                    "  :vi=" + Vi + ",\n" +
-                    "  :vf=" + Vf + "\n" +
-                    ")";
+                "  :vi=" + Vi + ",\n" +
+                "  :vf=" + Vf + "\n" +
+                ")";
         }
     }
 }

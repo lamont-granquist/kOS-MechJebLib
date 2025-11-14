@@ -1,14 +1,13 @@
-using System;
 using kOS.Safe.Encapsulation;
 using kOS.Safe.Encapsulation.Suffixes;
-using kOS.Suffixed;
+using kOS.Safe.Utilities;
 
 namespace kOS.AddOns.kOSMechJebLib
 {
     /// <summary>
-    /// Holds both the initial and final velocity return values from the Lambert routine.
+    ///     Holds both the initial and final velocity return values from the Lambert routine.
     /// </summary>
-    [kOS.Safe.Utilities.KOSNomenclature("OrbitalElements")]
+    [KOSNomenclature("OrbitalElements")]
     public class OrbitalElements : Structure
     {
         public double Sma  { get; }
@@ -17,17 +16,17 @@ namespace kOS.AddOns.kOSMechJebLib
         public double Lan  { get; }
         public double Argp { get; }
         public double Nu   { get; }
-        public double L   { get; }
+        public double L    { get; }
 
-        public OrbitalElements(double sma,  double ecc, double inc, double lan, double argp, double nu, double l)
+        public OrbitalElements(double sma, double ecc, double inc, double lan, double argp, double nu, double l)
         {
-            Sma = sma;
-            Ecc = ecc;
-            Inc = inc;
-            Lan = lan;
+            Sma  = sma;
+            Ecc  = ecc;
+            Inc  = inc;
+            Lan  = lan;
             Argp = argp;
-            Nu = nu;
-            L = l;
+            Nu   = nu;
+            L    = l;
             RegisterInitializer(InitializeSuffixes);
         }
 
@@ -45,14 +44,14 @@ namespace kOS.AddOns.kOSMechJebLib
         public override string ToString()
         {
             return "OrbitalElements(\n" +
-                    "  :sma=" + Sma + ",\n" +
-                    "  :ecc=" + Ecc + "\n" +
-                    "  :inc=" + Inc + "\n" +
-                    "  :lan=" + Lan + "\n" +
-                    "  :argp=" + Argp + "\n" +
-                    "  :nu=" + Nu + "\n" +
-                    "  :l=" + L + "\n" +
-                    ")";
+                "  :sma=" + Sma + ",\n" +
+                "  :ecc=" + Ecc + "\n" +
+                "  :inc=" + Inc + "\n" +
+                "  :lan=" + Lan + "\n" +
+                "  :argp=" + Argp + "\n" +
+                "  :nu=" + Nu + "\n" +
+                "  :l=" + L + "\n" +
+                ")";
         }
     }
 }

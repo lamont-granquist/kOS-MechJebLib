@@ -1,14 +1,14 @@
-using System;
 using kOS.Safe.Encapsulation;
 using kOS.Safe.Encapsulation.Suffixes;
+using kOS.Safe.Utilities;
 using kOS.Suffixed;
 
 namespace kOS.AddOns.kOSMechJebLib
 {
     /// <summary>
-    /// Holds both the position and velocity of an object in body-centered World co-ordinates
+    ///     Holds both the position and velocity of an object in body-centered World co-ordinates
     /// </summary>
-    [kOS.Safe.Utilities.KOSNomenclature("StateVector")]
+    [KOSNomenclature("StateVector")]
     public class StateVector : Structure
     {
         public Vector Position { get; }
@@ -23,16 +23,16 @@ namespace kOS.AddOns.kOSMechJebLib
 
         private void InitializeSuffixes()
         {
-            AddSuffix(new[] {"POSITION", "POS"}, new Suffix<Vector>(() => Position));
-            AddSuffix(new[] {"VELOCITY", "VEL"}, new Suffix<Vector>(() => Velocity));
+            AddSuffix(new[] { "POSITION", "POS" }, new Suffix<Vector>(() => Position));
+            AddSuffix(new[] { "VELOCITY", "VEL" }, new Suffix<Vector>(() => Velocity));
         }
 
         public override string ToString()
         {
             return "StateVector(\n" +
-                    "  :position=" + Position + ",\n" +
-                    "  :velocity=" + Velocity + "\n" +
-                    ")";
+                "  :position=" + Position + ",\n" +
+                "  :velocity=" + Velocity + "\n" +
+                ")";
         }
     }
 }

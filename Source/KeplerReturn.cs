@@ -1,23 +1,22 @@
-using System;
 using kOS.Safe.Encapsulation;
 using kOS.Safe.Encapsulation.Suffixes;
-using kOS.Suffixed;
+using kOS.Safe.Utilities;
 
 namespace kOS.AddOns.kOSMechJebLib
 {
     /// <summary>
-    /// Holds both the initial and final velocity return values from the Lambert routine.
+    ///     Holds both the initial and final velocity return values from the Lambert routine.
     /// </summary>
-    [kOS.Safe.Utilities.KOSNomenclature("KeplerReturn")]
+    [KOSNomenclature("KeplerReturn")]
     public class KeplerReturn : Structure
     {
         public double Eanom { get; }
-        public double Nu { get; }
+        public double Nu    { get; }
 
         public KeplerReturn(double eanom, double nu)
         {
             Eanom = eanom;
-            Nu = nu;
+            Nu    = nu;
             RegisterInitializer(InitializeSuffixes);
         }
 
@@ -30,9 +29,9 @@ namespace kOS.AddOns.kOSMechJebLib
         public override string ToString()
         {
             return "KeplerReturn(\n" +
-                    "  :eanom=" + Eanom + ",\n" +
-                    "  :nu=" + Nu + "\n" +
-                    ")";
+                "  :eanom=" + Eanom + ",\n" +
+                "  :nu=" + Nu + "\n" +
+                ")";
         }
     }
 }
