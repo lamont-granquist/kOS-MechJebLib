@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{7197C90E-63E1-4002-835E-94901EA7C3F2}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>kOS.AddOns.kOSMechJebLib</RootNamespace>
+        <AssemblyName>kOS-MechJebLib</AssemblyName>
+        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>..\GameData\kOS-MechJebLib\Plugins\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <ConsolePause>false</ConsolePause>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <Prefer32Bit>false</Prefer32Bit>
+        <LangVersion>preview</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>portable</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>..\GameData\kOS-MechJebLib\Plugins\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <ConsolePause>false</ConsolePause>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <Prefer32Bit>false</Prefer32Bit>
+        <PlatformTarget>x64</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <LangVersion>preview</LangVersion>
+    </PropertyGroup>
+   <Target Name="DebugProperties" BeforeTargets="Build">
+     <Message Text="KSPData = $(KSPData)" Importance="high" />
+     <Message Text="KSPGameData = $(KSPGameData)" Importance="high" />
+   </Target>
+    <ItemGroup>
+        <Reference Include="System"/>
+        <Reference Include="System.Core"/>
+        <!-- Private=false prevents the reference from being copied to the output directory -->
+        <Reference Include="$(KSPGameData)\MechJeb2\Plugins\MechJebLib.dll">
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="$(KSPGameData)\MechJeb2\Plugins\MechJebLibBindings.dll">
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="$(KSPData)/Managed/Assembly-CSharp.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="$(KSPData)/Managed/Assembly-CSharp-firstpass.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="$(KSPData)\Managed\UnityEngine.dll">
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="$(KSPData)\Managed\UnityEngine.CoreModule.dll">
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="$(KSPGameData)\kOS\Plugins\kOS.dll">
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="$(KSPGameData)\kOS\Plugins\kOS.Safe.dll">
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="SevenArgsSuffix.cs" />
+        <Compile Include="SixArgsSuffix.cs" />
+        <Compile Include="FiveArgsSuffix.cs" />
+        <Compile Include="FourArgsSuffix.cs" />
+        <Compile Include="KeplerReturn.cs" />
+        <Compile Include="OrbitalElements.cs" />
+        <Compile Include="LambertReturn.cs" />
+        <Compile Include="StateVector.cs" />
+        <Compile Include="Addon.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs"/>
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+</Project>

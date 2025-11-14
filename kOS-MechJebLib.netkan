@@ -1,0 +1,19 @@
+spec_version: v1.26
+identifier: kOS-MechJebLib
+name: kOS bindings to MechJebLib
+abstract: >-
+  Exposes some internal astrodynamics APIs in MechJeb for use in kOS
+license: Unlicense
+author: Lamont Grnquist
+$kref: '#/ckan/github/lamont-granquist/kOS-MechJebLib/asset_match/v1'
+$vref: '#/ckan/ksp-avc'
+x_netkan_force_v: true
+release_status: stable
+resources:
+  homepage: https://github.com/lamont-granquist/kOS-MechJebLib/blob/main/README.md
+  manual: https://github.com/lamont-granquist/kOS-MechJebLib/blob/main/README.md
+depends:
+  - name: MechJeb2
+    min_version: 2.14.3.0
+  - name: kOS
+    min_version: 1:1.5.1.0
